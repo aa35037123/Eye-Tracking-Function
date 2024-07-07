@@ -33,7 +33,7 @@ To install and set up this project, follow these steps:
 
 1. Clone the repository:
     ```bash
-    [git clone https://github.com/your-username/priver-patient-care-breakthrough.git](https://github.com/aa35037123/Eye-Tracking-Function.git)
+    https://github.com/aa35037123/Eye-Tracking-Function.git
     cd priver-patient-care-breakthrough
     ```
 

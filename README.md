@@ -1,42 +1,82 @@
-[![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://forthebadge.com)<br>
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)<br>
-[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
+# Priver Patient Care Breakthrough
 
-# EYE CONTROLLED KEYBOARD : 
+This repository contains the code and documentation for the Priver Patient Care Breakthrough project by Slidesgo. The project focuses on providing accessibility solutions for disabled individuals, enabling them to use 3C products through eye-tracking and other assistive technologies.
 
-It is a eye-controlled keyboard for physically-challenged people. 
-It uses Neural Networks to predict the eye's state accurately using which the virtual keybaord shown on the screen is operated.
+## Table of Contents
 
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Future Plans](#future-plans)
+- [Contributors](#contributors)
+- [License](#license)
 
-![Alt text](demo.gif)
+## Introduction
 
-# How it works
-For each frame in a second:
-1. Using Dlib frontal face detector all of the 68 facial landmarks co-ordinates are detected and the co-ordinates are converted into numpy array.
-2. Pass 36,37,38,39,40,41th index of array to the ```crop_eye()```
-function as it contains co-ordinates of respective landmarks and function returns cropped image for left eye.
-3. Similarly pass 42,43,44,45,46,47 index to get cropped image of right eye.
-<br>
-<img src="FILES\crop.png">
-4.The cropped eyes images are passed to the two model blink detection model and gaze detection model. Blink detection model predicts the openning percentage of the eyes and gaze detection model predict the gaze of the eyes ie. either user is loking left, right or center<br>
-5.Eyes blink is used to enter inside the particular column of the keyboard and Eyes gaze is used to shift the active column of the keyboard.
+In an increasingly advanced technological environment, this project aims to empower disabled individuals to operate 3C products using only their eyes. This increases their autonomy and access to new information, reducing the inconvenience typically associated with using these products.
 
-# For the more details read the paper on this project from [HERE](https://drive.google.com/file/d/1gniRFHjCecArHWOHneltp6tUWql5MirM/view?usp=sharing)
+## Features
 
-# For the dataset email me 
+1. **Send Messages via Telegram Bot**
+    - Users can send messages to specific groups or individuals using a Telegram bot.
 
-This code was developed on: 
-```
-python == 3.7.0
-opencv-python == 4.3.0.36
-tensorflow==2.3.0
-dlib == 19.20.0
-imutils==0.5.3
-```
+2. **Image Crawling**
+    - Search and download images using visual tracking and specific keywords through Google.
 
-# NOTE:
- Download the shape_predictor_68_face_landmarks.dat file from [HERE](https://drive.google.com/drive/folders/1sBn-qxZW-cJC8epR0z63Kz3uwnS8SjZF?usp=sharing) and paste it in the Files folder. 
+3. **YouTube Search**
+    - Search for and view YouTube videos using visual tracking and VLC player.
 
-### With the joint effort of: https://github.com/R4j4n
+## Installation
 
-![visitors](https://visitor-badge.glitch.me/badge?page_id=page.https://github.com/R4j4n/Neural-Keyboard)
+To install and set up this project, follow these steps:
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/priver-patient-care-breakthrough.git
+    cd priver-patient-care-breakthrough
+    ```
+
+2. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Set up the Telegram bot:
+    - Create a bot on Telegram and obtain the token.
+    - Update the configuration file with your bot token.
+
+## Usage
+
+1. **Sending Messages via Telegram Bot**
+    - Run the script for the Telegram bot and use the visual tracking keyboard to send messages.
+
+2. **Image Crawling**
+    - Use the visual tracking keyboard to input keywords for image search.
+    - The script will search Google, download images, and save them.
+
+3. **YouTube Search**
+    - Use the visual tracking keyboard to input keywords for YouTube search.
+    - The script will retrieve the video and play it using VLC player.
+
+## Future Plans
+
+1. **Direct Computer Operation**
+    - Enable the keyboard to operate the computer directly.
+    - Add functionality to control the mouse using eye movements.
+
+2. **Data Collection and Integration**
+    - Collect user-required data through another bot and integrate it with the user's bot.
+
+3. **Portable Integration**
+    - Develop portable versions of the functionalities for easier and more direct use.
+
+## Contributors
+
+- 顏新勻
+- 許瑋哲
+- 曾兆翌
+
+## License
+
+This project is licensed under the Apache License, Version 2.0. See the [LICENSE](LICENSE) file for details.

@@ -23,7 +23,7 @@ class Blink_detection:
         min_x, min_y = int(cx - margin_x), int(cy - margin_y)
         max_x, max_y = int(cx + margin_x), int(cy + margin_y)
 
-        eye_rect = np.rint([min_x, min_y, max_x, max_y]).astype(np.int)
+        eye_rect = np.rint([min_x, min_y, max_x, max_y]).astype(int)
 
         eye_img = gray[eye_rect[1]:eye_rect[3], eye_rect[0]:eye_rect[2]]
 
@@ -53,7 +53,7 @@ class Gaze_detection:
         min_x, min_y = int(cx - margin_x), int(cy - margin_y)
         max_x, max_y = int(cx + margin_x), int(cy + margin_y)
 
-        eye_rect = np.rint([min_x, min_y, max_x, max_y]).astype(np.int)
+        eye_rect = np.rint([min_x, min_y, max_x, max_y]).astype(int)
 
         eye_img = gray[eye_rect[1]:eye_rect[3], eye_rect[0]:eye_rect[2]]
 

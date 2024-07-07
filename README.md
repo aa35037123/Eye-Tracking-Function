@@ -34,7 +34,6 @@ To install and set up this project, follow these steps:
 1. Clone the repository:
     ```bash
     https://github.com/aa35037123/Eye-Tracking-Function.git
-    cd priver-patient-care-breakthrough
     ```
 
 2. Install the required dependencies:

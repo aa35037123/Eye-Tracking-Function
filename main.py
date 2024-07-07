@@ -11,15 +11,6 @@ from functions import *
 def play_sound(sound_file):
     os.system(f"aplay {sound_file}")
 
-def search_function():
-    print("Search function triggered")
-
-def send_message_function():
-    print("Send message function triggered")
-
-def play_music_function():
-    print("Play music function triggered")
-
 # KEYBOARD SETTING/VARIABLES: 
 keyboard = np.zeros((350, 800, 3), np.uint8)  # Increased height to add buttons
 first_col_index = [0, 10, 20, 30, 40, 50, 60]
@@ -119,12 +110,14 @@ def handle_button_press(letter, text, crawler):
     if letter == "msg":
         telegram_bot_sendtext(text)
     elif letter == "web":
+        print('Crawling web . . .')
+        # crawler.do_crawling(text)
         crawler.do_crawling(text)
     elif letter == "music":
-        play_music_function()
+        play_music(text)
 
 crawler = AutoCrawler()
-
+# crawler.do_crawling("dog")
 while True:
     main_windows = np.zeros((780, 1000, 3), np.uint8)
     if col_select == True:
@@ -261,10 +254,11 @@ while True:
         selected_key = key_set[col_index[row]]
         print("typed text:", selected_key)
         if selected_key == '<-':
-            type_text = type_text[:-1]
+            type_text = ""
         elif selected_key in ["web", "msg", "music"]:
             # print('Press the special button')
             handle_button_press(selected_key, type_text, crawler)
+            type_text = ""
         else:
             type_text = type_text + selected_key
         blink_count_indivisual_key = 0
@@ -293,7 +287,7 @@ while True:
     cv2.putText(main_windows, str(state_r + "%"), (800, 200), font_letter, 2, (0, 0, 255), 2)
 
     main_windows[0:300, 300:700] = cv2.resize(frame, (400, 300))
-    main_windows[350:700, 100:900] = keyboard  # Adjusted to fit the keyboard
+    main_windows[325:675, 100:900] = keyboard  # Adjusted to fit the keyboard
     main_windows[670:770, 100:900] = white_board
     cv2.imshow("Main_Windows", main_windows)
     key = cv2.waitKey(10)

@@ -8,7 +8,7 @@ class Blink_detection:
 
     def __init__(self):
         self.IMG_SIZE = (34, 26)
-        self.model = load_model("FILES\\blinkdetection.h5") 
+        self.model = load_model("FILES/blinkdetection.h5") 
 
     def crop_eye(self, gray, eye_points):
         x1, y1 = np.amin(eye_points, axis=0)
@@ -38,7 +38,7 @@ class Gaze_detection:
 
     def __init__(self):
         self.IMG_SIZE = (64, 56)
-        self.model = load_model("FILES\\gazev4.h5") 
+        self.model = load_model("FILES/gazev4.h5") 
 
     def crop_eye(self, gray, eye_points):
         x1, y1 = np.amin(eye_points, axis=0)

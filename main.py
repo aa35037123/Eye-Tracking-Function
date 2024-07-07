@@ -5,6 +5,7 @@ import numpy as np
 from math import hypot
 from imutils import face_utils
 from utils import *
+from functions import *
 # import winsound
 
 def play_sound(sound_file):
@@ -114,12 +115,12 @@ def draw_keyboard(letter_index, letter, light):
     letter_y = int((height + letter_height) / 2) + y
     cv2.putText(keyboard, letter, (letter_x, letter_y), font, font_scale, (255, 255, 255), letter_thickness)
 
-def handle_button_press(letter):
-    if letter == "send_message":
-        send_message_function()
-    elif letter == "search":
+def handle_button_press(letter, text):
+    if letter == "msg":
+        telegram_bot_sendtext(text)
+    elif letter == "web":
         search_function()
-    elif letter == "play_music":
+    elif letter == "music":
         play_music_function()
 
 while True:
@@ -250,6 +251,7 @@ while True:
         blink_count_indivisual_key = 0
         
     if blink_count == 10:
+        play_sound('FILES/beep-01a.wav')
         col_select = True
     # implementing keyboard typing
     if blink_count_indivisual_key == 10 and col_select == True:
@@ -258,8 +260,9 @@ while True:
         print("typed text:", selected_key)
         if selected_key == '<-':
             type_text = type_text[:-1]
-        elif selected_key in ["search", "send_message", "play_music"]:
-            handle_button_press(selected_key)
+        elif selected_key in ["web", "msg", "music"]:
+            # print('Press the special button')
+            handle_button_press(selected_key, type_text)
         else:
             type_text = type_text + selected_key
         blink_count_indivisual_key = 0
